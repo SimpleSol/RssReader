@@ -24,6 +24,12 @@ import com.example.leon.rssreader.widgets.RssChannelsAdapter;
 public class RssNewsList extends RssList {
 
     @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        getLoaderManager().initLoader(0, getArguments(), this);
+        super.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         return new CursorLoader(getActivity(), RssNews.TABLE.getUri(), null, RssNews.Columns._ID + "=?",
                 new String[]{String.valueOf(args.getLong(RssChannel.Columns._ID))}, null);

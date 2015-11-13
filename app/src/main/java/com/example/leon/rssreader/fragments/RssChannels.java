@@ -24,6 +24,12 @@ import com.example.leon.rssreader.widgets.RssChannelsAdapter;
 public class RssChannels extends RssList implements AdapterView.OnItemClickListener {
 
     @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        getLoaderManager().initLoader(0, Bundle.EMPTY, this);
+        super.onActivityCreated(savedInstanceState);
+    }
+
+        @Override
     public void onResume() {
         super.onResume();
         mListView.setOnItemClickListener(this);
