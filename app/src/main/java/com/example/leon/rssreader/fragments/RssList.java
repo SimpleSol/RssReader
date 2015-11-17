@@ -52,4 +52,6 @@ public class RssList extends Fragment implements LoaderManager.LoaderCallbacks<C
     public void onLoaderReset(Loader<Cursor> loader) {
         mListAdapter.swapCursor(null);
     }
+
+
 }

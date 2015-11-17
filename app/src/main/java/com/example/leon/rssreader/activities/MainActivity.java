@@ -1,13 +1,10 @@
 package com.example.leon.rssreader.activities;
 
-import android.content.ContentValues;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.leon.rssreader.R;
-import com.example.leon.rssreader.content.RssChannel;
-import com.example.leon.rssreader.content.RssNews;
-import com.example.leon.rssreader.fragments.RssChannels;
+import com.example.leon.rssreader.fragments.ChannelsList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,17 +15,13 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             getFragmentManager()
                     .beginTransaction()
-                    .add(R.id.fragment, new RssChannels())
+                    .add(R.id.fragment, new ChannelsList())
                     .commit();
         }
 
-//        final ContentValues values = new ContentValues();
-//        values.put(RssChannel.Columns.TITLE, "Яндекс.Новости: Hardware");
-//        values.put(RssChannel.Columns.LINK, "https://news.yandex.ru/hardware.html");
-//        getContentResolver().insert(RssChannel.TABLE.getUri(), values);
     }
 
-    @Override
+    @Override // my changes
     public void onBackPressed() {
         if (getFragmentManager().popBackStackImmediate()) {
             supportFinishAfterTransition();
